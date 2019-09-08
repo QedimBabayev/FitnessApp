@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="FitnessModelStoreContainer" CdmEntityContainer="FitnessEntities">
+    <EntitySetMapping Name="AdminParols">
+      <EntityTypeMapping TypeName="FitnessModel.AdminParol">
+        <MappingFragment StoreEntitySet="AdminParol">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="AdminParol1" ColumnName="AdminParol" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cards">
+      <EntityTypeMapping TypeName="FitnessModel.Card">
+        <MappingFragment StoreEntitySet="Card">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CardNumber" ColumnName="CardNumber" />
+          <ScalarProperty Name="ClientId" ColumnName="ClientId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CardToPacketServices">
+      <EntityTypeMapping TypeName="FitnessModel.CardToPacketService">
+        <MappingFragment StoreEntitySet="CardToPacketServices">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CardId" ColumnName="CardId" />
+          <ScalarProperty Name="PacketsssId" ColumnName="PacketsssId" />
+          <ScalarProperty Name="ServicesssId" ColumnName="ServicesssId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Incomings">
+      <EntityTypeMapping TypeName="FitnessModel.Incoming">
+        <MappingFragment StoreEntitySet="Incomings">
+          <ScalarProperty Name="IncomeMonth" ColumnName="IncomeMonth" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ClientIncomes" ColumnName="ClientIncomes" />
+          <ScalarProperty Name="RegisterId" ColumnName="RegisterId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Outcomes">
+      <EntityTypeMapping TypeName="FitnessModel.Outcome">
+        <MappingFragment StoreEntitySet="Outcomes">
+          <ScalarProperty Name="Mont" ColumnName="Mont" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Tools" ColumnName="Tools" />
+          <ScalarProperty Name="Cleaning" ColumnName="Cleaning" />
+          <ScalarProperty Name="WhichService" ColumnName="WhichService" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Packets">
+      <EntityTypeMapping TypeName="FitnessModel.Packet">
+        <MappingFragment StoreEntitySet="Packets">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PacketName" ColumnName="PacketName" />
+          <ScalarProperty Name="PacketPrice" ColumnName="PacketPrice" />
+          <ScalarProperty Name="PacketTime" ColumnName="PacketTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PacketToServies">
+      <EntityTypeMapping TypeName="FitnessModel.PacketToServy">
+        <MappingFragment StoreEntitySet="PacketToServies">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ServiceId" ColumnName="ServiceId" />
+          <ScalarProperty Name="PacketsId" ColumnName="PacketsId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Registers">
+      <EntityTypeMapping TypeName="FitnessModel.Register">
+        <MappingFragment StoreEntitySet="Register">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ClientName" ColumnName="ClientName" />
+          <ScalarProperty Name="ClientSurname" ColumnName="ClientSurname" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Services">
+      <EntityTypeMapping TypeName="FitnessModel.Service">
+        <MappingFragment StoreEntitySet="Services">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ServiceNames" ColumnName="ServiceNames" />
+          <ScalarProperty Name="ServicePrice" ColumnName="ServicePrice" />
+          <ScalarProperty Name="ServiceDuration" ColumnName="ServiceDuration" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

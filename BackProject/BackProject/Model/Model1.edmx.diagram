@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9148ebe5fad24f49bfbf84fa6b684ec5" Name="Diagram1">
+        <EntityTypeShape EntityType="FitnessModel.AdminParol" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FitnessModel.Card" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="FitnessModel.CardToPacketService" Width="1.5" PointX="3" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FitnessModel.Incoming" Width="1.5" PointX="3.75" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FitnessModel.Outcome" Width="1.5" PointX="3" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FitnessModel.Packet" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FitnessModel.PacketToServy" Width="1.5" PointX="6" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FitnessModel.Register" Width="1.5" PointX="1.5" PointY="11" IsExpanded="false" />
+        <EntityTypeShape EntityType="FitnessModel.Service" Width="1.5" PointX="0.75" PointY="4.25" IsExpanded="true" />
+        <AssociationConnector Association="FitnessModel.FK__Card__ClientId__2E1BDC42" ManuallyRouted="false" />
+        <AssociationConnector Association="FitnessModel.FK__CardToPac__CardI__398D8EEE" ManuallyRouted="false" />
+        <AssociationConnector Association="FitnessModel.FK__CardToPac__Packe__4D94879B" ManuallyRouted="false" />
+        <AssociationConnector Association="FitnessModel.FK__CardToPac__Servi__4E88ABD4" ManuallyRouted="false" />
+        <AssociationConnector Association="FitnessModel.FK_CardToPacketServices_CardToPacketServices" ManuallyRouted="false" />
+        <AssociationConnector Association="FitnessModel.FK__Incomings__Regis__32E0915F" ManuallyRouted="false" />
+        <AssociationConnector Association="FitnessModel.FK__Outcomes__WhichS__35BCFE0A" ManuallyRouted="false" />
+        <AssociationConnector Association="FitnessModel.FK__PacketToS__Packe__286302EC" ManuallyRouted="false" />
+        <AssociationConnector Association="FitnessModel.FK__PacketToS__Servi__276EDEB3" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

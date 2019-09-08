@@ -1,0 +1,253 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FitnessModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="AdminParol">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AdminParol1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Card">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CardNumber" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ClientId" Type="Int32" />
+    <NavigationProperty Name="Register" Relationship="Self.FK__Card__ClientId__2E1BDC42" FromRole="Card" ToRole="Register" />
+    <NavigationProperty Name="CardToPacketServices" Relationship="Self.FK__CardToPac__CardI__398D8EEE" FromRole="Card" ToRole="CardToPacketServices" />
+  </EntityType>
+  <EntityType Name="CardToPacketService">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CardId" Type="Int32" />
+    <Property Name="PacketsssId" Type="Int32" />
+    <Property Name="ServicesssId" Type="Int32" />
+    <NavigationProperty Name="Card" Relationship="Self.FK__CardToPac__CardI__398D8EEE" FromRole="CardToPacketServices" ToRole="Card" />
+    <NavigationProperty Name="Packet" Relationship="Self.FK__CardToPac__Packe__4D94879B" FromRole="CardToPacketServices" ToRole="Packets" />
+    <NavigationProperty Name="Service" Relationship="Self.FK__CardToPac__Servi__4E88ABD4" FromRole="CardToPacketServices" ToRole="Services" />
+    <NavigationProperty Name="CardToPacketServices1" Relationship="Self.FK_CardToPacketServices_CardToPacketServices" FromRole="CardToPacketServices" ToRole="CardToPacketServices1" />
+    <NavigationProperty Name="CardToPacketService1" Relationship="Self.FK_CardToPacketServices_CardToPacketServices" FromRole="CardToPacketServices1" ToRole="CardToPacketServices" />
+  </EntityType>
+  <EntityType Name="Incoming">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ClientIncomes" Type="Int64" />
+    <Property Name="RegisterId" Type="Int32" />
+    <NavigationProperty Name="Register" Relationship="Self.FK__Incomings__Regis__32E0915F" FromRole="Incomings" ToRole="Register" />
+    <Property Name="IncomeMonth" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="Outcome">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Tools" Type="Int64" />
+    <Property Name="Cleaning" Type="Int64" />
+    <Property Name="WhichService" Type="Int32" />
+    <NavigationProperty Name="Service" Relationship="Self.FK__Outcomes__WhichS__35BCFE0A" FromRole="Outcomes" ToRole="Services" />
+    <Property Name="Mont" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="Packet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PacketName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PacketPrice" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="PacketTime" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="CardToPacketServices" Relationship="Self.FK__CardToPac__Packe__4D94879B" FromRole="Packets" ToRole="CardToPacketServices" />
+    <NavigationProperty Name="PacketToServies" Relationship="Self.FK__PacketToS__Packe__286302EC" FromRole="Packets" ToRole="PacketToServies" />
+  </EntityType>
+  <EntityType Name="PacketToServy">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ServiceId" Type="Int32" />
+    <Property Name="PacketsId" Type="Int32" />
+    <NavigationProperty Name="Packet" Relationship="Self.FK__PacketToS__Packe__286302EC" FromRole="PacketToServies" ToRole="Packets" />
+    <NavigationProperty Name="Service" Relationship="Self.FK__PacketToS__Servi__276EDEB3" FromRole="PacketToServies" ToRole="Services" />
+  </EntityType>
+  <EntityType Name="Register">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ClientName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ClientSurname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Cards" Relationship="Self.FK__Card__ClientId__2E1BDC42" FromRole="Register" ToRole="Card" />
+    <NavigationProperty Name="Incomings" Relationship="Self.FK__Incomings__Regis__32E0915F" FromRole="Register" ToRole="Incomings" />
+  </EntityType>
+  <EntityType Name="Service">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ServiceNames" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ServicePrice" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ServiceDuration" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CardToPacketServices" Relationship="Self.FK__CardToPac__Servi__4E88ABD4" FromRole="Services" ToRole="CardToPacketServices" />
+    <NavigationProperty Name="Outcomes" Relationship="Self.FK__Outcomes__WhichS__35BCFE0A" FromRole="Services" ToRole="Outcomes" />
+    <NavigationProperty Name="PacketToServies" Relationship="Self.FK__PacketToS__Servi__276EDEB3" FromRole="Services" ToRole="PacketToServies" />
+  </EntityType>
+  <Association Name="FK__Card__ClientId__2E1BDC42">
+    <End Role="Register" Type="Self.Register" Multiplicity="0..1" />
+    <End Role="Card" Type="FitnessModel.Card" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Register">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Card">
+        <PropertyRef Name="ClientId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CardToPac__CardI__398D8EEE">
+    <End Role="Card" Type="FitnessModel.Card" Multiplicity="0..1" />
+    <End Role="CardToPacketServices" Type="Self.CardToPacketService" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Card">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CardToPacketServices">
+        <PropertyRef Name="CardId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CardToPac__Packe__4D94879B">
+    <End Role="Packets" Type="Self.Packet" Multiplicity="0..1" />
+    <End Role="CardToPacketServices" Type="Self.CardToPacketService" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Packets">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CardToPacketServices">
+        <PropertyRef Name="PacketsssId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CardToPac__Servi__4E88ABD4">
+    <End Role="Services" Type="Self.Service" Multiplicity="0..1" />
+    <End Role="CardToPacketServices" Type="Self.CardToPacketService" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Services">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CardToPacketServices">
+        <PropertyRef Name="ServicesssId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CardToPacketServices_CardToPacketServices">
+    <End Role="CardToPacketServices" Type="Self.CardToPacketService" Multiplicity="1" />
+    <End Role="CardToPacketServices1" Type="Self.CardToPacketService" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="CardToPacketServices">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CardToPacketServices1">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Incomings__Regis__32E0915F">
+    <End Role="Register" Type="Self.Register" Multiplicity="0..1" />
+    <End Role="Incomings" Type="Self.Incoming" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Register">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Incomings">
+        <PropertyRef Name="RegisterId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Outcomes__WhichS__35BCFE0A">
+    <End Role="Services" Type="Self.Service" Multiplicity="0..1" />
+    <End Role="Outcomes" Type="Self.Outcome" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Services">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Outcomes">
+        <PropertyRef Name="WhichService" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PacketToS__Packe__286302EC">
+    <End Role="Packets" Type="Self.Packet" Multiplicity="0..1" />
+    <End Role="PacketToServies" Type="Self.PacketToServy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Packets">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PacketToServies">
+        <PropertyRef Name="PacketsId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PacketToS__Servi__276EDEB3">
+    <End Role="Services" Type="Self.Service" Multiplicity="0..1" />
+    <End Role="PacketToServies" Type="Self.PacketToServy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Services">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PacketToServies">
+        <PropertyRef Name="ServiceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="FitnessEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AdminParols" EntityType="Self.AdminParol" />
+    <EntitySet Name="Cards" EntityType="FitnessModel.Card" />
+    <EntitySet Name="CardToPacketServices" EntityType="Self.CardToPacketService" />
+    <EntitySet Name="Incomings" EntityType="Self.Incoming" />
+    <EntitySet Name="Outcomes" EntityType="Self.Outcome" />
+    <EntitySet Name="Packets" EntityType="Self.Packet" />
+    <EntitySet Name="PacketToServies" EntityType="Self.PacketToServy" />
+    <EntitySet Name="Registers" EntityType="Self.Register" />
+    <EntitySet Name="Services" EntityType="Self.Service" />
+    <AssociationSet Name="FK__Card__ClientId__2E1BDC42" Association="Self.FK__Card__ClientId__2E1BDC42">
+      <End Role="Register" EntitySet="Registers" />
+      <End Role="Card" EntitySet="Cards" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CardToPac__CardI__398D8EEE" Association="Self.FK__CardToPac__CardI__398D8EEE">
+      <End Role="Card" EntitySet="Cards" />
+      <End Role="CardToPacketServices" EntitySet="CardToPacketServices" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CardToPac__Packe__4D94879B" Association="Self.FK__CardToPac__Packe__4D94879B">
+      <End Role="Packets" EntitySet="Packets" />
+      <End Role="CardToPacketServices" EntitySet="CardToPacketServices" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CardToPac__Servi__4E88ABD4" Association="Self.FK__CardToPac__Servi__4E88ABD4">
+      <End Role="Services" EntitySet="Services" />
+      <End Role="CardToPacketServices" EntitySet="CardToPacketServices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CardToPacketServices_CardToPacketServices" Association="Self.FK_CardToPacketServices_CardToPacketServices">
+      <End Role="CardToPacketServices" EntitySet="CardToPacketServices" />
+      <End Role="CardToPacketServices1" EntitySet="CardToPacketServices" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Incomings__Regis__32E0915F" Association="Self.FK__Incomings__Regis__32E0915F">
+      <End Role="Register" EntitySet="Registers" />
+      <End Role="Incomings" EntitySet="Incomings" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Outcomes__WhichS__35BCFE0A" Association="Self.FK__Outcomes__WhichS__35BCFE0A">
+      <End Role="Services" EntitySet="Services" />
+      <End Role="Outcomes" EntitySet="Outcomes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PacketToS__Packe__286302EC" Association="Self.FK__PacketToS__Packe__286302EC">
+      <End Role="Packets" EntitySet="Packets" />
+      <End Role="PacketToServies" EntitySet="PacketToServies" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PacketToS__Servi__276EDEB3" Association="Self.FK__PacketToS__Servi__276EDEB3">
+      <End Role="Services" EntitySet="Services" />
+      <End Role="PacketToServies" EntitySet="PacketToServies" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
